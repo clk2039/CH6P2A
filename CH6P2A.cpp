@@ -15,9 +15,17 @@ Input - Name of region and number of accidents.
 Preconditions - Number of accidents must be 0 or greater.
 Postconditions - Returns the name of the region and the number of accidents.
 */
-void getRegInfo(const string& region, int& accidents)
+void getRegInfo(string& region, int& accidents)
 {
-
+	//Get region name
+	cout << "Enter the region, North, South, East, West, or Central: ";
+	cin >> region;
+	while (region != "North" && region != "South" && region != "East" && region != "West" && region != "Central")
+	{
+		cout << "Please enter North, South, East, West, or Central: ";
+		cin >> region;
+	}
+	//Get number of accidents
 	cout << "Enter the number of reported accidents in " << region << " last year: ";
 	cin >> accidents;
 	while (accidents < 0)
@@ -57,11 +65,11 @@ void showLowest(string region, int accidents)
 int main()
 {
 	// Region names
-	const string North = "North";
-	const string South = "South";
-	const string East = "East";
-	const string West = "West";
-	const string Central = "Central";
+	string North = "North";
+	string South = "South";
+	string East = "East";
+	string West = "West";
+	string Central = "Central";
 
 	// Variables to hold number of accidents
 	int northAccidents, southAccidents, eastAccidents, westAccidents, centralAccidents;
